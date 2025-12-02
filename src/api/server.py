@@ -34,7 +34,7 @@ async def event_generator(query: str):
 
     # Stream events from LangGraph
     # We use .astream to get async updates
-    async for event in graph_app.astream(initial_state):
+    async for event in graph_app.astream(initial_state): #type:ignore
         
         # 1. Handle Chain Updates (Plan generation, Step execution)
         for node_name, node_state in event.items():
